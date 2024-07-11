@@ -21,12 +21,7 @@ struct SheetView: View {
                 performSearch()
             }
         
-        Button(action: {
-            performSearch()
-        }, label: {
-            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-        })
-        
+        //list of suggested location
         List(suggestedLocations, id: \.self) { location in
             Button(action: {
                 selectedLocation = location
@@ -49,11 +44,6 @@ struct SheetView: View {
     }
     
     private func performSearch() {
-        //        guard !searchText.isEmpty else {
-        //            locations = []
-        //            return
-        //        }
-        
         print("\(searchLocation)")
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchLocation
@@ -67,9 +57,6 @@ struct SheetView: View {
             
             self.suggestedLocations = response.mapItems
         }
-        
-        //        print("typed")
-        //        print(suggestedLocations)
     }
 }
 

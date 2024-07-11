@@ -9,13 +9,13 @@ import SwiftUI
 import MapKit
 
 struct SearchView: View {
-    
     @State private var selectedDate = Date()
-    @State private var searchLocation : String = ""
-    @State private var selectedLocation : MKMapItem?
-    @State private var isSheetPresented: Bool = false
+    @State private var searchLocation : String = "" //text field binding
+    @State private var selectedLocation : MKMapItem? //when the user select a location
+    @State private var isSheetPresented: Bool = false //to show SheetView
     
     //user can't select a date before today
+    //user can't select a time before now
     private var todayDate: Date {
         return Calendar.current.startOfDay(for: Date())
     }
@@ -34,7 +34,6 @@ struct SearchView: View {
     }
     
     var body: some View {
-        
         VStack {
             TextField("Search for a place", text: $searchLocation)
                 .autocorrectionDisabled()
@@ -45,7 +44,6 @@ struct SearchView: View {
                     SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented)
                 }
             
-            
             DatePicker(
                 "Time",
                 selection: $selectedDate,
@@ -55,9 +53,6 @@ struct SearchView: View {
             .datePickerStyle(.compact)
             .padding()
         }
-        
-        
-        
     }
 }
 
