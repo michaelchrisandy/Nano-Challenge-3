@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct LottieTestView: View {
+    @StateObject private var viewModel = AQIViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("City: \(viewModel.cityName)")
+            Text("AQI: \(viewModel.aqi)")
+            Text("Status: \(viewModel.status)")
+        }
+        .onAppear {
+            viewModel.fetchAQI()
+        }
+        
+        LottieView(name: "Animation - 1720746227333", loopMode: .loop)
+        Text("Loading")
+            .padding()
     }
 }
 
