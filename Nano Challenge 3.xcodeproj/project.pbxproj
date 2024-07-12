@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		278A99672C3EC5590095EA37 /* weatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278A99662C3EC5590095EA37 /* weatherManager.swift */; };
+		278A99E42C40DC3F0095EA37 /* locationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278A99E32C40DC3F0095EA37 /* locationManager.swift */; };
+		278A99E62C4117760095EA37 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278A99E52C4117760095EA37 /* WeatherView.swift */; };
 		4A32AD262C3E6649006F66E5 /* Nano_Challenge_3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32AD252C3E6649006F66E5 /* Nano_Challenge_3App.swift */; };
 		4A32AD282C3E6649006F66E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32AD272C3E6649006F66E5 /* ContentView.swift */; };
 		4A32AD2A2C3E664A006F66E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A32AD292C3E664A006F66E5 /* Assets.xcassets */; };
@@ -22,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		278A99632C3E8E910095EA37 /* Nano Challenge 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nano Challenge 3.entitlements"; sourceTree = "<group>"; };
+		278A99662C3EC5590095EA37 /* weatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherManager.swift; sourceTree = "<group>"; };
+		278A99E32C40DC3F0095EA37 /* locationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationManager.swift; sourceTree = "<group>"; };
+		278A99E52C4117760095EA37 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		4A32AD222C3E6649006F66E5 /* Nano Challenge 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nano Challenge 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A32AD252C3E6649006F66E5 /* Nano_Challenge_3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano_Challenge_3App.swift; sourceTree = "<group>"; };
 		4A32AD272C3E6649006F66E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 		4A32AD242C3E6649006F66E5 /* Nano Challenge 3 */ = {
 			isa = PBXGroup;
 			children = (
+
 				BC5EE8A12C40B8EF0027753A /* LottieJSON */,
 				BCE005BC2C3E90E000978324 /* Nano Challenge 3.entitlements */,
 				4A32AD252C3E6649006F66E5 /* Nano_Challenge_3App.swift */,
@@ -76,7 +84,10 @@
 				BC5EE89F2C3FD9AD0027753A /* LottieView.swift */,
 				BCE005BD2C3E937E00978324 /* AQIModel.swift */,
 				BCE005BF2C3E938A00978324 /* AQIViewModel.swift */,
+				278A99662C3EC5590095EA37 /* weatherManager.swift */,
+				278A99E32C40DC3F0095EA37 /* locationManager.swift */,
 				4A32AD292C3E664A006F66E5 /* Assets.xcassets */,
+				278A99E52C4117760095EA37 /* WeatherView.swift */,
 				4A32AD2B2C3E664A006F66E5 /* Preview Content */,
 				4A32AD332C3E6E4A006F66E5 /* SearchView.swift */,
 				4A32AD412C3FC567006F66E5 /* SheetView.swift */,
@@ -177,7 +188,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				BCE005C02C3E938A00978324 /* AQIViewModel.swift in Sources */,
+				278A99E62C4117760095EA37 /* WeatherView.swift in Sources */,
+				278A99E42C40DC3F0095EA37 /* locationManager.swift in Sources */,
 				4A32AD282C3E6649006F66E5 /* ContentView.swift in Sources */,
 				4A32AD342C3E6E4A006F66E5 /* SearchView.swift in Sources */,
 				BC5EE8A02C3FD9AD0027753A /* LottieView.swift in Sources */,
@@ -185,6 +199,7 @@
 				4A32AD262C3E6649006F66E5 /* Nano_Challenge_3App.swift in Sources */,
 				BC5EE8A72C40E3F90027753A /* LottieTestView.swift in Sources */,
 				4A32AD422C3FC567006F66E5 /* SheetView.swift in Sources */,
+				278A99672C3EC5590095EA37 /* weatherManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nano Challenge 3/Preview Content\"";
-				DEVELOPMENT_TEAM = P32FHW38R8;
+				DEVELOPMENT_TEAM = V347BRW4U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -349,7 +364,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Nano Challenge 3/Preview Content\"";
-				DEVELOPMENT_TEAM = P32FHW38R8;
+				DEVELOPMENT_TEAM = V347BRW4U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
