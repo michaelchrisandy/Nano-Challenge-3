@@ -36,4 +36,8 @@ class AQIViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
+    
+    func pollutionDecision() {
+        
+    }
 }
