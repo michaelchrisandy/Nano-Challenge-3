@@ -20,6 +20,9 @@ struct SheetView: View {
             .onChange(of: searchLocation) {
                 performSearch()
             }
+//            .background(.blue)
+            .padding()
+//            .cornerRadius()
         
         //list of suggested location
         List(suggestedLocations, id: \.self) { location in
@@ -60,9 +63,10 @@ struct SheetView: View {
     }
 }
 
-//#Preview {
-//    @State var searchLocation: String = ""
-//    @State var selectedLocation: MKMapItem? = nil
-//    return SheetView2(searchLocation: $searchLocation, selectedLocation: $selectedLocation)
-//}
+#Preview {
+    @State var searchLocation: String = ""
+    @State var selectedLocation: MKMapItem? = nil
+    @State var isSheetPresented: Bool = true
+    return SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented)
+}
 
