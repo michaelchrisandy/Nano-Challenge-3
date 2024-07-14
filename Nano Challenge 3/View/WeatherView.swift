@@ -9,19 +9,20 @@ import SwiftUI
 import CoreLocation
 
 struct WeatherView: View {
+    @StateObject private var locationManager = LocationManager()
     @State private var weatherManager = WeatherManager()
     @State private var location = ""
     @State private var coordinate: CLLocationCoordinate2D? //holds geographic coordinates (latitude and longitude) of the location
     @State private var hourlyForecast: [String] = []
-    
+
     var body: some View {
         VStack(spacing: 12) {
             TextField("Enter Location", text: $location)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            
+
             Button("Get Weather") {
-                locationManager.getCoordinate(addressString: location) { coordinate, error in //location to coordinate
+                LocationManager.getCoordinate(addressString: location) { coordinate, error in
                     if let coordinate = coordinate {
                         self.coordinate = coordinate
                         Task {
@@ -32,18 +33,18 @@ struct WeatherView: View {
                 }
             }
             .padding()
-            
+
             if let _ = coordinate { //coordinate state property is not nil
                 Image(systemName: weatherManager.icon)
                     .font(.largeTitle)
                     .shadow(radius: 2)
                     .padding()
-                
+
                 //display curr weather
                 Text("Temperature: \(weatherManager.temperature)")
                 Text("Humidity: \(weatherManager.humidity)")
                 Text("UV Index: \(weatherManager.uvIndex)")
-                
+
                 // Display hourly forecast
                 ScrollView {
                     VStack(alignment: .leading) {
@@ -54,13 +55,12 @@ struct WeatherView: View {
                     }
                 }
                 .padding()
-                
+
             }
         }
         .padding()
         .font(.title3)
     }
-    
 }
 
 #Preview {

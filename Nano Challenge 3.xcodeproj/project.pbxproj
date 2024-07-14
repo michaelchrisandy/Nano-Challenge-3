@@ -16,13 +16,13 @@
 		4A32AD2D2C3E664A006F66E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A32AD2C2C3E664A006F66E5 /* Preview Assets.xcassets */; };
 		4A32AD342C3E6E4A006F66E5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32AD332C3E6E4A006F66E5 /* SearchView.swift */; };
 		4A32AD422C3FC567006F66E5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32AD412C3FC567006F66E5 /* SheetView.swift */; };
-		BC18469C2C41348100AB7408 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BC18469B2C41348100AB7408 /* Lottie */; };
 		BC18469E2C43971000AB7408 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18469D2C43971000AB7408 /* MainView.swift */; };
 		BC1846A52C4399E500AB7408 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846A42C4399E500AB7408 /* TempView.swift */; };
 		BC1846A72C4399E900AB7408 /* AirPollutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846A62C4399E900AB7408 /* AirPollutionView.swift */; };
 		BC1846A92C4399F400AB7408 /* RainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846A82C4399F400AB7408 /* RainView.swift */; };
 		BC1846AB2C4399FA00AB7408 /* UVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846AA2C4399FA00AB7408 /* UVView.swift */; };
 		BC1846AD2C439A1500AB7408 /* VitaminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846AC2C439A1500AB7408 /* VitaminView.swift */; };
+		BC1846C12C443CF800AB7408 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BC1846C02C443CF800AB7408 /* Lottie */; };
 		BC5EE8A02C3FD9AD0027753A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE89F2C3FD9AD0027753A /* LottieView.swift */; };
 		BC5EE8A52C40B97B0027753A /* Animation - 1720746227333.json in Resources */ = {isa = PBXBuildFile; fileRef = BC5EE8A42C40B97B0027753A /* Animation - 1720746227333.json */; };
 		BC5EE8A72C40E3F90027753A /* LottieTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE8A62C40E3F90027753A /* LottieTestView.swift */; };
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC18469C2C41348100AB7408 /* Lottie in Frameworks */,
+				BC1846C12C443CF800AB7408 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 			);
 			name = "Nano Challenge 3";
 			packageProductDependencies = (
-				BC18469B2C41348100AB7408 /* Lottie */,
+				BC1846C02C443CF800AB7408 /* Lottie */,
 			);
 			productName = "Nano Challenge 3";
 			productReference = 4A32AD222C3E6649006F66E5 /* Nano Challenge 3.app */;
@@ -215,7 +215,7 @@
 			);
 			mainGroup = 4A32AD192C3E6648006F66E5;
 			packageReferences = (
-				BC18469A2C41348100AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				BC1846BF2C443CF800AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 4A32AD232C3E6649006F66E5 /* Products */;
 			projectDirPath = "";
@@ -470,7 +470,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BC18469A2C41348100AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+		BC1846BF2C443CF800AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
 			requirement = {
@@ -481,9 +481,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC18469B2C41348100AB7408 /* Lottie */ = {
+		BC1846C02C443CF800AB7408 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BC18469A2C41348100AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			package = BC1846BF2C443CF800AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */

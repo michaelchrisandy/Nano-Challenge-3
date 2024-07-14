@@ -9,30 +9,31 @@ import SwiftUI
 import MapKit
 
 struct SearchView: View {
+    @StateObject private var locationManager = LocationManager()
     @State private var selectedDate = Date()
-    @State private var searchLocation : String = "" //text field binding
-    @State private var selectedLocation : MKMapItem? //when the user select a location
+    @State private var searchLocation: String = "" //text field binding
+    @State private var selectedLocation: MKMapItem? //when the user select a location
     @State private var isSheetPresented: Bool = false //to show SheetView
-    
+
     //user can't select a date before today
     //user can't select a time before now
     private var todayDate: Date {
         return Calendar.current.startOfDay(for: Date())
     }
-    
+
     private var tenDaysFromToday: Date {
         return Calendar.current.date(byAdding: .day, value: 10, to: todayDate) ?? Date()
     }
-    
+
     private var currentTime: DateComponents {
         return Calendar.current.dateComponents([.hour, .minute], from: Date())
     }
-    
+
     private var dateRange: ClosedRange<Date> {
         let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
         return now...tenDaysFromToday
     }
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -52,14 +53,6 @@ struct SearchView: View {
             .cornerRadius(8)
             .padding(.horizontal, 40)
 
-            
-//            DatePicker(
-//                "Time",
-//                selection: $selectedDate,
-//                in: dateRange,
-//                displayedComponents: [.date, .hourAndMinute]
-//            )
-            
             HStack {
                 HStack {
                     Image(systemName: "clock")
@@ -90,7 +83,6 @@ struct SearchView: View {
         .background(.white)
     }
 }
-
 
 #Preview {
     SearchView()

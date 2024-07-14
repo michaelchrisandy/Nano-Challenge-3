@@ -12,7 +12,7 @@ struct TempView: View {
     
     var body: some View {
         VStack {
-            Text("Rainy")
+            Text(weatherManager.temperature)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
