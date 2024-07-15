@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct TempView: View {
-    @StateObject private var weatherManager = WeatherManager()
+    @Binding var selectedDate : Date
+    @ObservedObject var weatherManager : WeatherManager
     
     var body: some View {
         VStack {
-            Text(weatherManager.temperature)
+            Text("\(weatherManager.curWeather?.temperature.converted(to: .celsius).value)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
@@ -25,14 +26,17 @@ struct TempView: View {
                 .font(.title3)
                 .multilineTextAlignment(.center)
         }
-        .onAppear {
-            Task {
-                await weatherManager.getWeather(lat: -6.291096092322379, long: 106.61980068174248) // BSD latitude and longitude
-            }
-        }
+//        .onAppear {
+//            Task {
+//                await weatherManager.getWeather(lat: -6.291096092322379, long: 106.61980068174248) // BSD latitude and longitude
+//                weatherManager.getWeatherForSpecificDateAndHour(date: selectedDate)
+//            }
+//        }
     }
 }
 
 #Preview {
-    TempView()
+    @State var weatherManager = WeatherManager()
+    @State var selectedDate = Date()
+    return TempView(selectedDate: $selectedDate, weatherManager: weatherManager)
 }
