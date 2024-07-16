@@ -12,7 +12,7 @@ struct MainView: View {
     @StateObject private var weatherManager = WeatherManager()
     @State private var selectedDate = Date()
     @StateObject private var airQualityModel = AQIViewModel()
-
+    
     var body: some View {
         VStack {
             SearchView(selectedDate: $selectedDate, weatherManager: weatherManager)
@@ -28,13 +28,14 @@ struct MainView: View {
             .padding()
 
             ContentComponent(contentModel: getContentModel(), selectedSegment: segmentedSelection, selectedDate: $selectedDate, weatherManager: weatherManager)
+                .padding()
             
             Spacer()
         }
         .onAppear {
             airQualityModel.fetchAQI()
         }
-        .background(.teal.opacity(0.2))
+        .background(.backgroundColoranjay)
     }
 
     private func getContentModel() -> ContentModel {
@@ -119,9 +120,9 @@ struct MainView: View {
         let vitamin_d_hour = Calendar.current.component(.hour, from: selectedDate)
         print("Selected hour: \(vitamin_d_hour)")
         if vitamin_d_hour >= 8 && vitamin_d_hour < 16 {
-            return ContentModel(status: Phrases.VitaminD.Good.status, title: Phrases.VitaminD.Good.title, detail: Phrases.VitaminD.Good.detail, imageName: "hot")
+            return ContentModel(status: Phrases.VitaminD.Good.status, title: Phrases.VitaminD.Good.title, detail: Phrases.VitaminD.Good.detail, imageName: "hot", colorStatus: 1)
         } else {
-            return ContentModel(status: Phrases.VitaminD.Bad.status, title: Phrases.VitaminD.Bad.title, detail: Phrases.VitaminD.Bad.detail, imageName: "hot")
+            return ContentModel(status: Phrases.VitaminD.Bad.status, title: Phrases.VitaminD.Bad.title, detail: Phrases.VitaminD.Bad.detail, imageName: "hot", colorStatus: 3)
         }
     }
 }
