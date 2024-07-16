@@ -90,7 +90,7 @@ struct Phrases {
         struct Bad {
             static let status = "Bad"
             static let title = "Not the Time for Vitamin D"
-            static let detail = "10 - 15 Minutes in the sun is enough"
+            static let detail = "The best time for vitamin D is 10 AM - 4 PM"
         }
     }
 }

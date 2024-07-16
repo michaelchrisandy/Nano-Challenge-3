@@ -38,65 +38,6 @@ struct SearchView: View {
         return now...tenDaysFromToday
     }
     
-//    var body: some View {
-//        VStack {
-//            HStack {
-//                Image(systemName: "magnifyingglass")
-//                    .foregroundStyle(.gray)
-//                TextField("", text: $searchLocation, prompt: Text("Where do you want to go?").foregroundStyle(.blue))
-//                    .autocorrectionDisabled()
-//                    .onTapGesture {
-//                        self.isSheetPresented = true
-//                    }
-//                    .sheet(isPresented: $isSheetPresented) {
-//                        SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented)
-//                    }
-//            }
-//            .padding(8)
-//            .background(Color.gray.opacity(0.2))
-//            .cornerRadius(8)
-//            .padding(.horizontal, 40)
-//            
-//            HStack {
-//                HStack {
-//                    Image(systemName: "clock")
-//                        .foregroundStyle(.gray)
-//                    DatePicker(
-//                        "",
-//                        selection: $selectedDate,
-//                        in: dateRange,
-//                        displayedComponents: .date
-//                    )
-//                    .datePickerStyle(.compact)
-//                }
-//                HStack {
-//                    Image(systemName: "calendar")
-//                        .padding(.leading, 40)
-//                        .foregroundStyle(.gray)
-//                    DatePicker(
-//                        "",
-//                        selection: $selectedDate,
-//                        in: dateRange,
-//                        displayedComponents: .hourAndMinute
-//                    )
-//                }
-//            }
-//            .padding(.horizontal, 40)
-//            
-//            Text(weatherInfo)
-//            
-////            MainView()
-//        }
-//        .onChange(of: selectedLocation){
-//            fetchWeatherData()
-//        }
-//        .onChange(of: selectedDate){
-//            fetchWeatherData()
-//        }
-//        .padding(.vertical)
-//        .background(.white)
-//    }
-    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)

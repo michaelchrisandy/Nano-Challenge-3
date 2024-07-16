@@ -13,7 +13,7 @@ struct ContentModel {
     var detail: String
     var imageName: String
 
-    static let dummy = ContentModel(status: "Sunny", title: "Extremely Hot", detail: "Avoid outdoor activities and keep toddlers hydrated", imageName: "hot")
+    static let dummy = ContentModel(status: "Not Searched", title: "Please search for location, date, and time", detail: "", imageName: "hot")
     
     // temperature
     static let goodTempModel = ContentModel(status: Phrases.Temperature.Good.status, title: Phrases.Temperature.Good.title, detail: Phrases.Temperature.Good.detail, imageName: "hot")

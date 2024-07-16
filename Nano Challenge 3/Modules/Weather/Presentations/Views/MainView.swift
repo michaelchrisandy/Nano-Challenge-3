@@ -11,6 +11,7 @@ struct MainView: View {
     @State var segmentedSelection = 0
     @StateObject private var weatherManager = WeatherManager()
     @State private var selectedDate = Date()
+    @StateObject private var airQualityModel = AQIViewModel()
 
     var body: some View {
         VStack {
@@ -26,9 +27,12 @@ struct MainView: View {
             .pickerStyle(.segmented)
             .padding()
 
-            ContentComponent(contentModel: getContentModel(), selectedDate: $selectedDate, weatherManager: weatherManager)
+            ContentComponent(contentModel: getContentModel(), selectedSegment: segmentedSelection, selectedDate: $selectedDate, weatherManager: weatherManager)
             
             Spacer()
+        }
+        .onAppear {
+            airQualityModel.fetchAQI()
         }
         .background(.teal.opacity(0.2))
     }
@@ -82,7 +86,17 @@ struct MainView: View {
 
     private func getAirQualityModel() -> ContentModel {
         // Logic to determine Good, Moderate, Bad based on weather data
-        return ContentModel(status: Phrases.AirQuality.Good.status, title: Phrases.AirQuality.Good.title, detail: Phrases.AirQuality.Good.detail, imageName: "hot")
+        let airQuality = airQualityModel.aqi
+        print("Air Quality: \(airQuality)")
+        if airQuality > 0 && airQuality <= 50 {
+            return ContentModel.goodAirQualityModel
+        } else if airQuality > 50 && airQuality <= 100 {
+            return ContentModel.modAirQualityModel
+        } else if airQuality > 100 {
+            return ContentModel.badAirQualityModel
+        } else {
+            return ContentModel.dummy
+        }
     }
 
     private func getUVModel() -> ContentModel {
@@ -102,7 +116,13 @@ struct MainView: View {
 
     private func getVitaminDModel() -> ContentModel {
         // Logic to determine Good, Moderate, Bad based on weather data
-        return ContentModel(status: Phrases.VitaminD.Good.status, title: Phrases.VitaminD.Good.title, detail: Phrases.VitaminD.Good.detail, imageName: "hot")
+        let vitamin_d_hour = Calendar.current.component(.hour, from: selectedDate)
+        print("Selected hour: \(vitamin_d_hour)")
+        if vitamin_d_hour >= 8 && vitamin_d_hour < 16 {
+            return ContentModel(status: Phrases.VitaminD.Good.status, title: Phrases.VitaminD.Good.title, detail: Phrases.VitaminD.Good.detail, imageName: "hot")
+        } else {
+            return ContentModel(status: Phrases.VitaminD.Bad.status, title: Phrases.VitaminD.Bad.title, detail: Phrases.VitaminD.Bad.detail, imageName: "hot")
+        }
     }
 }
 

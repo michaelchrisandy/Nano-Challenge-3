@@ -29,6 +29,7 @@
 		BC5EE8A02C3FD9AD0027753A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE89F2C3FD9AD0027753A /* LottieView.swift */; };
 		BC5EE8A52C40B97B0027753A /* Animation - 1720746227333.json in Resources */ = {isa = PBXBuildFile; fileRef = BC5EE8A42C40B97B0027753A /* Animation - 1720746227333.json */; };
 		BC5EE8A72C40E3F90027753A /* LottieTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE8A62C40E3F90027753A /* LottieTestView.swift */; };
+		BC9183ED2C4627B700D28F39 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BC9183EC2C4627B700D28F39 /* Localizable.xcstrings */; };
 		BCE005BE2C3E937E00978324 /* AQIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE005BD2C3E937E00978324 /* AQIModel.swift */; };
 		BCE005C02C3E938A00978324 /* AQIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE005BF2C3E938A00978324 /* AQIViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		BC5EE89F2C3FD9AD0027753A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		BC5EE8A42C40B97B0027753A /* Animation - 1720746227333.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation - 1720746227333.json"; sourceTree = "<group>"; };
 		BC5EE8A62C40E3F90027753A /* LottieTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTestView.swift; sourceTree = "<group>"; };
+		BC9183EC2C4627B700D28F39 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = "Nano Challenge 3/Localizable.xcstrings"; sourceTree = "<group>"; };
 		BCE005BC2C3E90E000978324 /* Nano Challenge 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nano Challenge 3.entitlements"; sourceTree = "<group>"; };
 		BCE005BD2C3E937E00978324 /* AQIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIModel.swift; sourceTree = "<group>"; };
 		BCE005BF2C3E938A00978324 /* AQIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		4A32AD192C3E6648006F66E5 = {
 			isa = PBXGroup;
 			children = (
+				BC9183EC2C4627B700D28F39 /* Localizable.xcstrings */,
 				4A32AD242C3E6649006F66E5 /* Nano Challenge 3 */,
 				4A32AD232C3E6649006F66E5 /* Products */,
 			);
@@ -293,6 +296,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 4A32AD192C3E6648006F66E5;
 			packageReferences = (
@@ -314,6 +318,7 @@
 			files = (
 				BC5EE8A52C40B97B0027753A /* Animation - 1720746227333.json in Resources */,
 				4A32AD2D2C3E664A006F66E5 /* Preview Assets.xcassets in Resources */,
+				BC9183ED2C4627B700D28F39 /* Localizable.xcstrings in Resources */,
 				4A32AD2A2C3E664A006F66E5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

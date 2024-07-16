@@ -1,0 +1,105 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "--" : {
+
+    },
+    "%.1f°C" : {
+
+    },
+    "10-4 PM" : {
+
+    },
+    "AQI" : {
+
+    },
+    "AQI %lld" : {
+
+    },
+    "AQI: %lld" : {
+
+    },
+    "City: %@" : {
+
+    },
+    "Enter Location" : {
+
+    },
+    "Get Weather" : {
+
+    },
+    "Humidity: %@" : {
+
+    },
+    "It's good to go outside" : {
+
+    },
+    "It's hot outside" : {
+
+    },
+    "It's polluted" : {
+
+    },
+    "It's rainy outside" : {
+
+    },
+    "Loading" : {
+
+    },
+    "Play inside so you don't get sunburn" : {
+
+    },
+    "Play inside so you don't melt" : {
+
+    },
+    "Play inside so you won't get caught in the rain" : {
+
+    },
+    "Play inside so you won't sick" : {
+
+    },
+    "Play outside because Vit D is a lot" : {
+
+    },
+    "Rain" : {
+
+    },
+    "Rainy" : {
+
+    },
+    "Search for a place" : {
+
+    },
+    "Status: %@" : {
+
+    },
+    "Temp" : {
+
+    },
+    "Temperature: %@" : {
+
+    },
+    "text" : {
+
+    },
+    "UV" : {
+
+    },
+    "UV Index" : {
+
+    },
+    "UV Index: %@" : {
+
+    },
+    "Vit D" : {
+
+    },
+    "Where do you want to go?" : {
+
+    }
+  },
+  "version" : "1.0"
+}
