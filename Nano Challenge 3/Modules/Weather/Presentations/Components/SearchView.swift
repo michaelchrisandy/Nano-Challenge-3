@@ -16,7 +16,6 @@ struct SearchView: View {
     
     @State private var weatherInfo: String = ""
     @State private var coordinate: CLLocationCoordinate2D? //holds geographic coordinates
-    @StateObject private var locationManager = LocationManager()
     @ObservedObject var weatherManager: WeatherManager
     
     //user can't select a date before today
