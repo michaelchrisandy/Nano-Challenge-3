@@ -43,7 +43,7 @@ struct SearchView: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundStyle(.gray)
-                TextField("", text: $searchLocation, prompt: Text("Where do you want to go?").foregroundStyle(.goodBlue))
+                TextField("", text: $searchLocation, prompt: Text("Where do you want to go?").foregroundStyle(.gray))
                     .autocorrectionDisabled()
                     .onTapGesture {
                         self.isSheetPresented = true
@@ -53,31 +53,31 @@ struct SearchView: View {
                     }
             }
             .padding(8)
-            .background(.grayBlueish)
+            .background(.gray.opacity(0.2))
             .cornerRadius(8)
             
             HStack {
-                Text("Date")
+                Text("Date").foregroundStyle(.gray)
                 DatePicker("", selection: $selectedDate, in: dateRange, displayedComponents: .date)
                     .datePickerStyle(CompactDatePickerStyle())
-                    .colorInvert()
-                    .colorMultiply(.goodBlue)
+//                    .colorInvert()
+//                    .colorMultiply(.gray)
                     .labelsHidden()
                 
                 Spacer()
                 
-                Text("Time")
+                Text("Time").foregroundStyle(.gray)
                 DatePicker("", selection: $selectedDate,in: dateRange, displayedComponents: .hourAndMinute)
                     .datePickerStyle(CompactDatePickerStyle())
-                    .colorInvert()
-                    .colorMultiply(.goodBlue)
+//                    .colorInvert()
+//                    .colorMultiply(.gray)
                     .labelsHidden()
                 
                 
             }
             
         }
-        .padding(.horizontal, 40)
+        .padding(.horizontal, 20)
         .onChange(of: selectedLocation){
             fetchWeatherData()
         }

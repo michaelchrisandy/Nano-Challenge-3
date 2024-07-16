@@ -38,78 +38,97 @@ struct ContentComponent: View {
                 case 0:
                     if let temperature = temperature {
                         Text(contentModel.status)
-                            .foregroundStyle(.gray)
-                        Text("\(temperature, specifier: "%.1f")°C")
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
+                        Text("\(temperature, specifier: "%.0f")°C")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .padding(.bottom, -100)
                     } else {
                         Text("--")
                     }
                 case 1:
                     if let precipitationChance = precipitationChance {
                         Text(contentModel.status)
-                            .foregroundStyle(.gray)
-                        Text("\(precipitationChance * 100, specifier: "%.1f") %")
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
+                        Text("\(precipitationChance * 100, specifier: "%.0f") %")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .padding(.bottom, -100)
                     } else {
                         Text("--")
                     }
                 case 2:
                     if let airPollutionIndex = airPollutionIndex {
                         Text(contentModel.status)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                         Text("\(airPollutionIndex) AQI")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .padding(.bottom, -100)
                     } else {
                         Text("--")
                     }
                 case 3:
                     if let uvIndex = uvIndex {
                         Text(contentModel.status)
-                            .foregroundStyle(.gray)
-                        //                    Text("\(uvIndex) index")
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                         Text("\(uvIndex, specifier: "%d") index")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .padding(.bottom, -100)
                     } else {
                         Text("--")
                     }
                 case 4:
                     if Calendar.current.component(.hour, from: selectedDate) >= 8 && Calendar.current.component(.hour, from: selectedDate) <= 16 {
                         Text(contentModel.status)
-                            .foregroundStyle(.gray)
-                        Text("Good time for Vitamin D")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .padding(.bottom, -100)
                     } else {
                         Text(contentModel.status)
-                            .foregroundStyle(.gray)
-                        Text("Not Ideal time for Vitamin D")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .padding(.bottom, -100)
                     }
                 default:
                     Text(contentModel.status)
                         .foregroundStyle(.gray)
                 }
                 
-                Image(contentModel.imageName)
-                Text(contentModel.title)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                Text(contentModel.detail)
-                    .font(.title3)
-                    .foregroundStyle(.gray)
-                    .multilineTextAlignment(.center)
+                ZStack {
+                    VStack {
+                        Circle()
+                            .fill(contentColor.opacity(colorScheme == .dark ? 0.5 : 0.5))
+                            .frame(height: 150)
+                            .blur(radius: 50)
+                        Circle()
+                            .fill(contentColor.opacity(colorScheme == .dark ? 0.5 : 0.5))
+                            .frame(height: 150)
+                            .blur(radius: 50)
+                    }
+                    GifImageView(contentModel.imageName)
+                        .frame(height: 250)
+                }
+                VStack (spacing: 16){
+                    Text(contentModel.title)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    Text(contentModel.detail)
+                        .padding(.bottom, -40)
+                        .font(.title3)
+                        .foregroundStyle(colorScheme == .dark ? .white : .gray)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 Spacer()
             }
             .padding()
@@ -148,5 +167,5 @@ struct ContentComponent: View {
 #Preview {
     @State var weatherManager = WeatherManager()
     @State var selectedDate = Date()
-    return ContentComponent(contentModel: ContentModel.dummy, selectedSegment: 0, selectedDate: $selectedDate, weatherManager: weatherManager)
+    return ContentComponent(contentModel: ContentModel.badUvModel, selectedSegment: 2, selectedDate: $selectedDate, weatherManager: weatherManager)
 }

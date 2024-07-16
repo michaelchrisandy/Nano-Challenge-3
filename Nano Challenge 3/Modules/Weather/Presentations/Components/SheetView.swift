@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Contacts
 
 struct SheetView: View {
     @Binding var searchLocation: String
@@ -30,6 +31,7 @@ struct SheetView: View {
                     selectedLocation = location
                     searchLocation = selectedLocation!.name!
                     isSheetPresented = false
+                    InputStatus.isLocationEmpty = false
                 }) {
                     VStack(alignment: .leading) {
                         Text(location.name ?? "Unknown")
@@ -63,11 +65,47 @@ struct SheetView: View {
             self.suggestedLocations = response.mapItems
         }
     }
+    
+    func createDummyMapItem() -> MKMapItem {
+        let coordinate = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194) // San Francisco coordinates
+        let addressDictionary: [String: Any] = [
+            CNPostalAddressStreetKey: "1 Market St",
+            CNPostalAddressCityKey: "San Francisco",
+            CNPostalAddressStateKey: "CA",
+            CNPostalAddressPostalCodeKey: "94105",
+            CNPostalAddressCountryKey: "United States"
+        ]
+
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "Test Location"
+        mapItem.phoneNumber = "123-456-7890"
+        
+        return mapItem
+    }
 }
 
 #Preview {
     @State var searchLocation: String = ""
-    @State var selectedLocation: MKMapItem? = nil
+    @State var selectedLocation : MKMapItem? = createDummyMapItem()
     @State var isSheetPresented: Bool = true
     return SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented)
+    
+    func createDummyMapItem() -> MKMapItem {
+        let coordinate = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194) // San Francisco coordinates
+        let addressDictionary: [String: Any] = [
+            CNPostalAddressStreetKey: "1 Market St",
+            CNPostalAddressCityKey: "San Francisco",
+            CNPostalAddressStateKey: "CA",
+            CNPostalAddressPostalCodeKey: "94105",
+            CNPostalAddressCountryKey: "United States"
+        ]
+
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "Test Location"
+        mapItem.phoneNumber = "123-456-7890"
+        
+        return mapItem
+    }
 }

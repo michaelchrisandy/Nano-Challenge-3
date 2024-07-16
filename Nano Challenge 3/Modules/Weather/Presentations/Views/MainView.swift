@@ -15,21 +15,24 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            SearchView(selectedDate: $selectedDate, weatherManager: weatherManager)
+            SearchView(selectedDate: $selectedDate,  weatherManager: weatherManager)
 
-            Picker(selection: $segmentedSelection, label: Text("text")) {
-                Text("Temp").tag(0)
-                Text("Rain").tag(1)
-                Text("AQI").tag(2)
-                Text("UV").tag(3)
-                Text("Vit D").tag(4)
-            }
-            .pickerStyle(.segmented)
-            .padding()
-
-            ContentComponent(contentModel: getContentModel(), selectedSegment: segmentedSelection, selectedDate: $selectedDate, weatherManager: weatherManager)
+            if InputStatus.isLocationEmpty {
+                InitialView()
+            } else {
+                Picker(selection: $segmentedSelection, label: Text("")) {
+                    Text("Temp").tag(0)
+                    Text("Rain").tag(1)
+                    Text("AQI").tag(2)
+                    Text("UV").tag(3)
+                    Text("Vit D").tag(4)
+                }
+                .pickerStyle(.segmented)
                 .padding()
-            
+                
+                ContentComponent(contentModel: getContentModel(), selectedSegment: segmentedSelection, selectedDate: $selectedDate, weatherManager: weatherManager)
+                    .padding(.horizontal)
+            }
             Spacer()
         }
         .onAppear {
@@ -104,7 +107,7 @@ struct MainView: View {
         // Logic to determine Good, Moderate, Bad based on weather data
         let uvIndex = weatherManager.curWeather?.uvIndex.value ?? 0
         print("UV Index: \(uvIndex)")
-        if uvIndex > 0 && uvIndex <= 2 {
+        if uvIndex >= 0 && uvIndex <= 2 {
             return ContentModel.goodUvModel
         } else if uvIndex > 2 && uvIndex <= 7 {
             return ContentModel.modUvModel
@@ -120,9 +123,9 @@ struct MainView: View {
         let vitamin_d_hour = Calendar.current.component(.hour, from: selectedDate)
         print("Selected hour: \(vitamin_d_hour)")
         if vitamin_d_hour >= 8 && vitamin_d_hour < 16 {
-            return ContentModel(status: Phrases.VitaminD.Good.status, title: Phrases.VitaminD.Good.title, detail: Phrases.VitaminD.Good.detail, imageName: "hot", colorStatus: 1)
+            return ContentModel.goodVitaminDModel
         } else {
-            return ContentModel(status: Phrases.VitaminD.Bad.status, title: Phrases.VitaminD.Bad.title, detail: Phrases.VitaminD.Bad.detail, imageName: "hot", colorStatus: 3)
+            return ContentModel.badVitaminDModel
         }
     }
 }
