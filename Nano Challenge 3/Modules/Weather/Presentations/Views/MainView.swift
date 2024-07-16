@@ -73,7 +73,7 @@ struct MainView: View {
         // Logic to determine Good, Moderate, Bad based on weather data
         let precipitationChance = (weatherManager.curWeather?.precipitationChance ?? 0) * 100
         print("Precipitation Chance: \(precipitationChance)")
-        if precipitationChance > 0 && precipitationChance <= 20 {
+        if precipitationChance >= 0 && precipitationChance < 20 {
             return ContentModel.goodRainModel
         } else if precipitationChance > 20 && precipitationChance <= 80 {
             return ContentModel.modRainModel
