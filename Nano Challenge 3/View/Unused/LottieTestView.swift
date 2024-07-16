@@ -15,14 +15,22 @@ struct LottieTestView: View {
             Text("City: \(viewModel.cityName)")
             Text("AQI: \(viewModel.aqi)")
             Text("Status: \(viewModel.status)")
+            GifImageView("1")
+                        .frame(width: 200, height: 200)
+            Text("Loading")
+                .padding()
         }
+        .background(.teal)
         .onAppear {
             viewModel.fetchAQI()
         }
         
-        LottieView(name: "Animation - 1720746227333", loopMode: .loop)
-        Text("Loading")
-            .padding()
+//        LottieView(name: "ezgif-7-7f3d19aafc.mp4.lottie", loopMode: .loop)
+//            .background(.black)
+//        GifHelper("1")
+//                    .frame(width: 200, height: 200) // Adjust size as needed
+//        Text("Loading")
+//            .padding()
     }
 }
 

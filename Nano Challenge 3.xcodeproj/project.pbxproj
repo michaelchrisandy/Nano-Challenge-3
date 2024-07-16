@@ -30,6 +30,11 @@
 		BC5EE8A52C40B97B0027753A /* Animation - 1720746227333.json in Resources */ = {isa = PBXBuildFile; fileRef = BC5EE8A42C40B97B0027753A /* Animation - 1720746227333.json */; };
 		BC5EE8A72C40E3F90027753A /* LottieTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE8A62C40E3F90027753A /* LottieTestView.swift */; };
 		BC9183ED2C4627B700D28F39 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BC9183EC2C4627B700D28F39 /* Localizable.xcstrings */; };
+		BC9183F52C465C7F00D28F39 /* Nano 3 Asset.mp4.lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BC9183F42C465C7F00D28F39 /* Nano 3 Asset.mp4.lottie.json */; };
+		BC9183F72C465D9C00D28F39 /* ezgif-7-7f3d19aafc.mp4.lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BC9183F62C465D9C00D28F39 /* ezgif-7-7f3d19aafc.mp4.lottie.json */; };
+		BC9183F92C465E5000D28F39 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9183F82C465E5000D28F39 /* GifImageView.swift */; };
+		BC9183FB2C465E7200D28F39 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC9183FA2C465E7200D28F39 /* 1.gif */; };
+		BC9183FE2C46607100D28F39 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC9183FD2C46607100D28F39 /* SDWebImageSwiftUI */; };
 		BCE005BE2C3E937E00978324 /* AQIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE005BD2C3E937E00978324 /* AQIModel.swift */; };
 		BCE005C02C3E938A00978324 /* AQIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE005BF2C3E938A00978324 /* AQIViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +63,10 @@
 		BC5EE8A42C40B97B0027753A /* Animation - 1720746227333.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation - 1720746227333.json"; sourceTree = "<group>"; };
 		BC5EE8A62C40E3F90027753A /* LottieTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTestView.swift; sourceTree = "<group>"; };
 		BC9183EC2C4627B700D28F39 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = "Nano Challenge 3/Localizable.xcstrings"; sourceTree = "<group>"; };
+		BC9183F42C465C7F00D28F39 /* Nano 3 Asset.mp4.lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Nano 3 Asset.mp4.lottie.json"; sourceTree = "<group>"; };
+		BC9183F62C465D9C00D28F39 /* ezgif-7-7f3d19aafc.mp4.lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ezgif-7-7f3d19aafc.mp4.lottie.json"; sourceTree = "<group>"; };
+		BC9183F82C465E5000D28F39 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
+		BC9183FA2C465E7200D28F39 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 		BCE005BC2C3E90E000978324 /* Nano Challenge 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nano Challenge 3.entitlements"; sourceTree = "<group>"; };
 		BCE005BD2C3E937E00978324 /* AQIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIModel.swift; sourceTree = "<group>"; };
 		BCE005BF2C3E938A00978324 /* AQIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIViewModel.swift; sourceTree = "<group>"; };
@@ -68,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9183FE2C46607100D28F39 /* SDWebImageSwiftUI in Frameworks */,
 				BC1846C42C44F32D00AB7408 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +177,7 @@
 			children = (
 				278A99662C3EC5590095EA37 /* WeatherManager.swift */,
 				278A99E32C40DC3F0095EA37 /* LocationManager.swift */,
+				BC9183F82C465E5000D28F39 /* GifImageView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -246,6 +257,9 @@
 		BC5EE8A12C40B8EF0027753A /* LottieJSON */ = {
 			isa = PBXGroup;
 			children = (
+				BC9183FA2C465E7200D28F39 /* 1.gif */,
+				BC9183F62C465D9C00D28F39 /* ezgif-7-7f3d19aafc.mp4.lottie.json */,
+				BC9183F42C465C7F00D28F39 /* Nano 3 Asset.mp4.lottie.json */,
 				BC5EE8A42C40B97B0027753A /* Animation - 1720746227333.json */,
 			);
 			path = LottieJSON;
@@ -269,6 +283,7 @@
 			name = "Nano Challenge 3";
 			packageProductDependencies = (
 				BC1846C32C44F32D00AB7408 /* Lottie */,
+				BC9183FD2C46607100D28F39 /* SDWebImageSwiftUI */,
 			);
 			productName = "Nano Challenge 3";
 			productReference = 4A32AD222C3E6649006F66E5 /* Nano Challenge 3.app */;
@@ -301,6 +316,7 @@
 			mainGroup = 4A32AD192C3E6648006F66E5;
 			packageReferences = (
 				BC1846C22C44F32D00AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				BC9183FC2C46607100D28F39 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 4A32AD232C3E6649006F66E5 /* Products */;
 			projectDirPath = "";
@@ -316,10 +332,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9183F52C465C7F00D28F39 /* Nano 3 Asset.mp4.lottie.json in Resources */,
 				BC5EE8A52C40B97B0027753A /* Animation - 1720746227333.json in Resources */,
 				4A32AD2D2C3E664A006F66E5 /* Preview Assets.xcassets in Resources */,
 				BC9183ED2C4627B700D28F39 /* Localizable.xcstrings in Resources */,
+				BC9183FB2C465E7200D28F39 /* 1.gif in Resources */,
 				4A32AD2A2C3E664A006F66E5 /* Assets.xcassets in Resources */,
+				BC9183F72C465D9C00D28F39 /* ezgif-7-7f3d19aafc.mp4.lottie.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +363,7 @@
 				BC1846AD2C439A1500AB7408 /* VitaminView.swift in Sources */,
 				BC1846C62C451F5100AB7408 /* SegmentedView.swift in Sources */,
 				4A32AD262C3E6649006F66E5 /* Nano_Challenge_3App.swift in Sources */,
+				BC9183F92C465E5000D28F39 /* GifImageView.swift in Sources */,
 				BC5EE8A72C40E3F90027753A /* LottieTestView.swift in Sources */,
 				BC1846A92C4399F400AB7408 /* RainView.swift in Sources */,
 				BC1846AB2C4399FA00AB7408 /* UVView.swift in Sources */,
@@ -567,6 +587,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		BC9183FC2C46607100D28F39 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -574,6 +602,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC1846C22C44F32D00AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		BC9183FD2C46607100D28F39 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC9183FC2C46607100D28F39 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
