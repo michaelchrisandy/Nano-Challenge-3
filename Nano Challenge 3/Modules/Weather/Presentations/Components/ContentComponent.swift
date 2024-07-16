@@ -14,97 +14,133 @@ struct ContentComponent: View {
     @ObservedObject var weatherManager: WeatherManager
     @StateObject private var airPollutionModel = AQIViewModel()
 
+    
+    @Environment(\.colorScheme) var colorScheme //detect dark mode
+    
+    @State var contentColor : Color = Color.contentGood
+    
     var body: some View {
         let temperature = weatherManager.curWeather?.temperature.converted(to: .celsius).value
         let uvIndex = weatherManager.curWeather?.uvIndex.value
         let precipitationChance = weatherManager.curWeather?.precipitationChance
         let airPollutionIndex: Int? = airPollutionModel.aqi
-
-        VStack {
-            Spacer()
+        
+        ZStack{
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .fill(contentColor.opacity(colorScheme == .dark ? 0.2 : 0.05))
+                .stroke(contentColor, lineWidth: 3)
             
-            switch selectedSegment {
-            // temp rain aqi uv D
-            case 0:
-                if let temperature = temperature {
+            VStack {
+                Spacer()
+                
+                switch selectedSegment {
+                    // temp rain aqi uv D
+                case 0:
+                    if let temperature = temperature {
+                        Text(contentModel.status)
+                            .foregroundStyle(.gray)
+                        Text("\(temperature, specifier: "%.1f")°C")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                    } else {
+                        Text("--")
+                    }
+                case 1:
+                    if let precipitationChance = precipitationChance {
+                        Text(contentModel.status)
+                            .foregroundStyle(.gray)
+                        Text("\(precipitationChance * 100, specifier: "%.1f") %")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                    } else {
+                        Text("--")
+                    }
+                case 2:
+                    if let airPollutionIndex = airPollutionIndex {
+                        Text(contentModel.status)
+                            .foregroundStyle(.gray)
+                        Text("\(airPollutionIndex) AQI")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                    } else {
+                        Text("--")
+                    }
+                case 3:
+                    if let uvIndex = uvIndex {
+                        Text(contentModel.status)
+                            .foregroundStyle(.gray)
+                        //                    Text("\(uvIndex) index")
+                        Text("\(uvIndex, specifier: "%d") index")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                    } else {
+                        Text("--")
+                    }
+                case 4:
+                    if Calendar.current.component(.hour, from: selectedDate) >= 8 && Calendar.current.component(.hour, from: selectedDate) <= 16 {
+                        Text(contentModel.status)
+                            .foregroundStyle(.gray)
+                        Text("Good time for Vitamin D")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                    } else {
+                        Text(contentModel.status)
+                            .foregroundStyle(.gray)
+                        Text("Not Ideal time for Vitamin D")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                    }
+                default:
                     Text(contentModel.status)
                         .foregroundStyle(.gray)
-                    Text("\(temperature, specifier: "%.1f")°C")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text("--")
                 }
-            case 1:
-                if let precipitationChance = precipitationChance {
-                    Text(contentModel.status)
-                        .foregroundStyle(.gray)
-                    Text("\(precipitationChance * 100, specifier: "%.1f") %")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text("--")
-                }
-            case 2:
-                if let airPollutionIndex = airPollutionIndex {
-                    Text(contentModel.status)
-                        .foregroundStyle(.gray)
-                    Text("\(airPollutionIndex) AQI")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text("--")
-                }
-            case 3:
-                if let uvIndex = uvIndex {
-                    Text(contentModel.status)
-                        .foregroundStyle(.gray)
-//                    Text("\(uvIndex) index")
-                    Text("\(uvIndex, specifier: "%d") index")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text("--")
-                }
-            case 4:
-                if Calendar.current.component(.hour, from: selectedDate) >= 8 && Calendar.current.component(.hour, from: selectedDate) <= 16 {
-                    Text(contentModel.status)
-                        .foregroundStyle(.gray)
-                    Text("Good time for Vitamin D")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text(contentModel.status)
-                        .foregroundStyle(.gray)
-                    Text("Not Ideal time for Vitamin D")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                }
-            default:
-                Text(contentModel.status)
+                
+                Image(contentModel.imageName)
+                Text(contentModel.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                Text(contentModel.detail)
+                    .font(.title3)
                     .foregroundStyle(.gray)
+                    .multilineTextAlignment(.center)
+                Spacer()
             }
-            
-            Image(contentModel.imageName)
-            Text(contentModel.title)
-                .font(.title)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            Text(contentModel.detail)
-                .font(.title3)
-                .foregroundStyle(.gray)
-                .multilineTextAlignment(.center)
-            Spacer()
-        }
-        .padding()
-        .onAppear {
-            airPollutionModel.fetchAQI()
+            .padding()
+            .onAppear {
+                airPollutionModel.fetchAQI()
+                
+                print(contentModel.colorStatus)
+                if(contentModel.colorStatus == 1){
+                    contentColor = Color.contentGood
+                }
+                else if(contentModel.colorStatus == 2){
+                    contentColor = Color.contentModerate
+                }
+                else{
+                    contentColor = Color.contentBad
+                }
+                
+            }
+            .onChange(of: contentModel){
+                print(contentModel.colorStatus)
+                if(contentModel.colorStatus == 1){
+                    contentColor = Color.contentGood
+                }
+                else if(contentModel.colorStatus == 2){
+                    contentColor = Color.contentModerate
+                }
+                else{
+                    contentColor = Color.contentBad
+                }
+                
+            }
         }
     }
 }
