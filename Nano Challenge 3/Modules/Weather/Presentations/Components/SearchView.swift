@@ -64,7 +64,7 @@ struct SearchView: View {
 
                 HStack {
                     
-                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                    DatePicker("", selection: $selectedDate, in: dateRange, displayedComponents: .date)
                         .datePickerStyle(CompactDatePickerStyle())
                         .colorInvert()
                         .colorMultiply(.goodBlue)
@@ -72,7 +72,7 @@ struct SearchView: View {
                     
                     Spacer()
                     
-                    DatePicker("", selection: $selectedDate, displayedComponents: .hourAndMinute)
+                    DatePicker("", selection: $selectedDate,in: dateRange, displayedComponents: .hourAndMinute)
                         .datePickerStyle(CompactDatePickerStyle())
                         .colorInvert()
                         .colorMultiply(.goodBlue)

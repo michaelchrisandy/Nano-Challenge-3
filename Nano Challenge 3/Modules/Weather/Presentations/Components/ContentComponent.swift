@@ -62,7 +62,8 @@ struct ContentComponent: View {
                 if let uvIndex = uvIndex {
                     Text(contentModel.status)
                         .foregroundStyle(.gray)
-                    Text("\(uvIndex, specifier: "%.1f") index")
+//                    Text("\(uvIndex) index")
+                    Text("\(uvIndex, specifier: "%d") index")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
