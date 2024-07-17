@@ -1,0 +1,625 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "--" : {
+
+    },
+    "%.0f %%" : {
+
+    },
+    "%.0f°C" : {
+
+    },
+    "%d index" : {
+
+    },
+    "%lld AQI" : {
+
+    },
+    "10 - 15 Minutes in the sun is enough" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 - 15 menit di bawah sinar matahari sudah cukup"
+          }
+        }
+      }
+    },
+    "Air quality is acceptable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kualitas udara dapat diterima"
+          }
+        }
+      }
+    },
+    "Air quality is great" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kualitas udara bagus"
+          }
+        }
+      }
+    },
+    "Air quality is okay but watch out if your toddler has breathing issues" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kualitas udara cukup baik tetapi waspada jika balita memiliki masalah pernapasan"
+          }
+        }
+      }
+    },
+    "AQI" : {
+
+    },
+    "Avoid direct sun and find shade" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hindari sinar matahari langsung dan cari tempat teduh"
+          }
+        }
+      }
+    },
+    "Avoid outdoor activities and keep toddlers hydrated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gunakan tabir surya, topi, dan tinggal di tempat teduh saat tengah hari"
+          }
+        }
+      }
+    },
+    "Bad" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buruk"
+          }
+        }
+      }
+    },
+    "Best time for Vitamin D" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waktu terbaik untuk Vitamin D"
+          }
+        }
+      }
+    },
+    "Best Time for Vitamin D" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waktu terbaik untuk Vitamin D"
+          }
+        }
+      }
+    },
+    "Clear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerah"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanggal"
+          }
+        }
+      }
+    },
+    "Drizzle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerimis"
+          }
+        }
+      }
+    },
+    "Enter Location" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masukkan Lokasi"
+          }
+        }
+      }
+    },
+    "Extremely Hot" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sangat Panas"
+          }
+        }
+      }
+    },
+    "Fill in your destination, \ndate, and time." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isi destinasi, tanggal, dan jam yang kamu mau."
+          }
+        }
+      }
+    },
+    "Get Weather" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dapatkan Cuaca"
+          }
+        }
+      }
+    },
+    "GIF not found" : {
+
+    },
+    "Good" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bagus"
+          }
+        }
+      }
+    },
+    "Good to go" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baik untuk bermain"
+          }
+        }
+      }
+    },
+    "High Risk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resiko Tinggi"
+          }
+        }
+      }
+    },
+    "High UV risk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resiko UV tinggi"
+          }
+        }
+      }
+    },
+    "It's a bit hot" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agak panas"
+          }
+        }
+      }
+    },
+    "It’s a bit hot" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agak panas"
+          }
+        }
+      }
+    },
+    "It's good to go outside" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamu bisa bermain di luar"
+          }
+        }
+      }
+    },
+    "It's hot outside" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Panas"
+          }
+        }
+      }
+    },
+    "It's polluted" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berpolusi"
+          }
+        }
+      }
+    },
+    "It's rainy outside" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujan di luar"
+          }
+        }
+      }
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Light rain" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerimis"
+          }
+        }
+      }
+    },
+    "Limit outdoor playtime for toddlers, especially if they have health issues" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batasi waktu bermain di luar untuk balita, terutama jika mereka memiliki masalah kesehatan"
+          }
+        }
+      }
+    },
+    "Low UV risk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resiko UV rendah"
+          }
+        }
+      }
+    },
+    "Make sure toddlers drink water, wear light clothes, and use sunscreen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pastikan balita minum air, pakai pakaian ringan, dan gunakan tabir surya"
+          }
+        }
+      }
+    },
+    "Moderate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sedang"
+          }
+        }
+      }
+    },
+    "Moderate UV Risk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resiko UV sedang"
+          }
+        }
+      }
+    },
+    "No forecast available" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ramalan AQI tidak tersedia"
+          }
+        }
+      }
+    },
+    "No rain, perfect for outdoor play" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak ada hujan, sempurna untuk bermain di luar"
+          }
+        }
+      }
+    },
+    "Not the time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bukan waktunya"
+          }
+        }
+      }
+    },
+    "Not the Time for Vitamin D" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bukan waktu yang pas untuk vitamin D"
+          }
+        }
+      }
+    },
+    "Play Ahead for \nthe Weather" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulai Cari Cuaca"
+          }
+        }
+      }
+    },
+    "Rain" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujan"
+          }
+        }
+      }
+    },
+    "Rainy" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujan"
+          }
+        }
+      }
+    },
+    "Safe to play" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aman untuk bermain"
+          }
+        }
+      }
+    },
+    "Search for a place" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari lokasi"
+          }
+        }
+      }
+    },
+    "Sunny" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerah"
+          }
+        }
+      }
+    },
+    "Sunscreen is optional, but recommended if you burn easily" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tabir surya opsional, tetapi direkomendasikan jika kulit mudah terbakar"
+          }
+        }
+      }
+    },
+    "Temp" : {
+
+    },
+    "Temperature: %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperature"
+          }
+        }
+      }
+    },
+    "The best time for vitamin D is 10 AM - 4 PM" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waktu terbaik untuk vitamin D adalah jam 10 pagi - 4 sore"
+          }
+        }
+      }
+    },
+    "There is a heavy rain potential\nBetter to stay indoors" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ada potensi hujan deras. Lebih baik tetap di dalam ruangan"
+          }
+        }
+      }
+    },
+    "There is a heavy rain potential\\nBetter to stay indoors" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ada potensi hujan deras.\\nLebih baik tetap di dalam ruangan."
+          }
+        }
+      }
+    },
+    "Time" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waktu"
+          }
+        }
+      }
+    },
+    "Toddlers can enjoy being outside" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balita bisa menikmati waktu di luar"
+          }
+        }
+      }
+    },
+    "Toddlers can play outside with an umbrella or raincoat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balita bisa bermain di luar dengan payung atau jas hujan"
+          }
+        }
+      }
+    },
+    "Toddlers can safely play outside" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balita dapat bermain di luar ruangan"
+          }
+        }
+      }
+    },
+    "Unhealthy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak sehat"
+          }
+        }
+      }
+    },
+    "Use sunscreen, hats, and stay in the shade during midday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gunakan tabir surya, topi, dan tinggal di tempat teduh saat tengah hari"
+          }
+        }
+      }
+    },
+    "UV" : {
+
+    },
+    "Vit D" : {
+
+    },
+    "Where do you want to go?" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kemana kamu mau pergi?"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
