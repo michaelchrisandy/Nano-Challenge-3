@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import MapKit
 
 class AQIViewModel: ObservableObject {
     @Published var aqi: Int = 0
@@ -15,9 +16,10 @@ class AQIViewModel: ObservableObject {
     var token = "4c6a9099d4971013a829bbbeb741939e03f9c745"
     private var cancellables = Set<AnyCancellable>()
     
-    func fetchAQI() {
-        guard let url = URL(string: "https://api.waqi.info/feed/here/?token=\(token)") else { return }
-
+    func fetchAQI(latitude: Double, longitude: Double) {
+        let urlString = "https://api.waqi.info/feed/geo:\(latitude);\(longitude)/?token=\(token)"
+        guard let url = URL(string: urlString) else { return }
+        
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: AQIResponse.self, decoder: JSONDecoder())
@@ -35,9 +37,5 @@ class AQIViewModel: ObservableObject {
                 self?.status = response.status
             })
             .store(in: &cancellables)
-    }
-    
-    func pollutionDecision() {
-        
     }
 }

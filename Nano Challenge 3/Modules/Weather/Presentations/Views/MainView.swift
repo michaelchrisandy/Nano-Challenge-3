@@ -15,7 +15,7 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            SearchView(selectedDate: $selectedDate,  weatherManager: weatherManager)
+            SearchView(selectedDate: $selectedDate,  weatherManager: weatherManager, airQualityModel: airQualityModel)
 
             if InputStatus.isLocationEmpty {
                 InitialView()
@@ -30,13 +30,10 @@ struct MainView: View {
                 .pickerStyle(.segmented)
                 .padding()
                 
-                ContentComponent(contentModel: getContentModel(), selectedSegment: segmentedSelection, selectedDate: $selectedDate, weatherManager: weatherManager)
+                ContentComponent(contentModel: getContentModel(), selectedSegment: segmentedSelection, selectedDate: $selectedDate, weatherManager: weatherManager, airQualityModel: airQualityModel)
                     .padding(.horizontal)
             }
             Spacer()
-        }
-        .onAppear {
-            airQualityModel.fetchAQI()
         }
         .background(.backgroundColoranjay)
     }

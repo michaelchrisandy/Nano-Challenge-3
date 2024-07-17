@@ -17,6 +17,7 @@ struct SearchView: View {
     @State private var weatherInfo: String = ""
     @State private var coordinate: CLLocationCoordinate2D? //holds geographic coordinates
     @ObservedObject var weatherManager: WeatherManager
+    @StateObject var airQualityModel: AQIViewModel
     
     //user can't select a date before today
     //user can't select a time before now
@@ -60,8 +61,6 @@ struct SearchView: View {
                 Text("Date").foregroundStyle(.gray)
                 DatePicker("", selection: $selectedDate, in: dateRange, displayedComponents: .date)
                     .datePickerStyle(CompactDatePickerStyle())
-//                    .colorInvert()
-//                    .colorMultiply(.gray)
                     .labelsHidden()
                 
                 Spacer()
@@ -69,23 +68,18 @@ struct SearchView: View {
                 Text("Time").foregroundStyle(.gray)
                 DatePicker("", selection: $selectedDate,in: dateRange, displayedComponents: .hourAndMinute)
                     .datePickerStyle(CompactDatePickerStyle())
-//                    .colorInvert()
-//                    .colorMultiply(.gray)
                     .labelsHidden()
-                
-                
             }
-            
         }
         .padding(.horizontal, 20)
         .onChange(of: selectedLocation){
             fetchWeatherData()
+            fetchAQIData()
         }
         .onChange(of: selectedDate){
             fetchWeatherData()
+            fetchAQIData()
         }
-        
-        
     }
     
     private func fetchWeatherData() {
@@ -102,6 +96,12 @@ struct SearchView: View {
             }
         }
     }
+    
+    private func fetchAQIData() {
+        guard let selectedLocation = selectedLocation else { return }
+        airQualityModel.fetchAQI(latitude: selectedLocation.placemark.coordinate.latitude, longitude: selectedLocation.placemark.coordinate.longitude)
+        print("fetchAQIData() with lat \(selectedLocation.placemark.coordinate.latitude) and long \(selectedLocation.placemark.coordinate.longitude)  is called")
+    }
 }
 
 
@@ -109,5 +109,6 @@ struct SearchView: View {
 #Preview {
     @State var selectedDate = Date()
     @StateObject var weatherManager = WeatherManager()
-    return SearchView(selectedDate: $selectedDate, weatherManager: weatherManager)
+    @ObservedObject var aqiViewModel = AQIViewModel()
+    return SearchView(selectedDate: $selectedDate, weatherManager: weatherManager, airQualityModel: aqiViewModel)
 }

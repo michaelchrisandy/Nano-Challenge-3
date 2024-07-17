@@ -12,7 +12,7 @@ struct ContentComponent: View {
     var selectedSegment: Int
     @Binding var selectedDate: Date
     @ObservedObject var weatherManager: WeatherManager
-    @StateObject private var airPollutionModel = AQIViewModel()
+    @ObservedObject var airQualityModel = AQIViewModel()
 
     
     @Environment(\.colorScheme) var colorScheme //detect dark mode
@@ -23,62 +23,60 @@ struct ContentComponent: View {
         let temperature = weatherManager.curWeather?.temperature.converted(to: .celsius).value
         let uvIndex = weatherManager.curWeather?.uvIndex.value
         let precipitationChance = weatherManager.curWeather?.precipitationChance
-        let airPollutionIndex: Int? = airPollutionModel.aqi
+        let airPollutionIndex: Int? = airQualityModel.aqi
         
         ZStack{
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(contentColor.opacity(colorScheme == .dark ? 0.2 : 0.05))
                 .stroke(contentColor, lineWidth: 3)
             
-            VStack {
-                Spacer()
-                
+            VStack {          
                 switch selectedSegment {
                     // temp rain aqi uv D
                 case 0:
                     if let temperature = temperature {
-                        Text(contentModel.status)
-                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                         Text("\(temperature, specifier: "%.0f")°C")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                        Text(contentModel.status)
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                             .padding(.bottom, -100)
                     } else {
                         Text("--")
                     }
                 case 1:
                     if let precipitationChance = precipitationChance {
-                        Text(contentModel.status)
-                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                         Text("\(precipitationChance * 100, specifier: "%.0f") %")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                        Text(contentModel.status)
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                             .padding(.bottom, -100)
                     } else {
                         Text("--")
                     }
                 case 2:
                     if let airPollutionIndex = airPollutionIndex {
-                        Text(contentModel.status)
-                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                         Text("\(airPollutionIndex) AQI")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                        Text(contentModel.status)
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                             .padding(.bottom, -100)
                     } else {
                         Text("--")
                     }
                 case 3:
                     if let uvIndex = uvIndex {
-                        Text(contentModel.status)
-                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                         Text("\(uvIndex, specifier: "%d") index")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                        Text(contentModel.status)
+                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
                             .padding(.bottom, -100)
                     } else {
                         Text("--")
@@ -123,19 +121,16 @@ struct ContentComponent: View {
                         .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                     Text(contentModel.detail)
-                        .padding(.bottom, -40)
+                        .padding(.bottom, -60)
                         .font(.title3)
                         .foregroundStyle(colorScheme == .dark ? .white : .gray)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                Spacer()
             }
             .padding()
             .onAppear {
-                airPollutionModel.fetchAQI()
                 
-                print(contentModel.colorStatus)
                 if(contentModel.colorStatus == 1){
                     contentColor = Color.contentGood
                 }
@@ -148,7 +143,6 @@ struct ContentComponent: View {
                 
             }
             .onChange(of: contentModel){
-                print(contentModel.colorStatus)
                 if(contentModel.colorStatus == 1){
                     contentColor = Color.contentGood
                 }
