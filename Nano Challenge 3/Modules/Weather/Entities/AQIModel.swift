@@ -14,9 +14,25 @@ struct AQIResponse: Codable {
 
 struct AQIData: Codable {
     let aqi: Int
-    let city: City
+    let city: AQICity
+    let forecast: AQIForecast?
 }
 
-struct City: Codable {
+struct AQICity: Codable {
     let name: String
+}
+
+struct AQIForecast: Codable {
+    let daily: AQIDaily?
+}
+
+struct AQIDaily: Codable {
+    let o3: [AQIIndex]?
+    let pm10: [AQIIndex]?
+    let pm25: [AQIIndex]?
+}
+
+struct AQIIndex: Codable {
+    let day: String
+    let avg: Int
 }

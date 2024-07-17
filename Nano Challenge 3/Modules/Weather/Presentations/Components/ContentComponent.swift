@@ -23,7 +23,7 @@ struct ContentComponent: View {
         let temperature = weatherManager.curWeather?.temperature.converted(to: .celsius).value
         let uvIndex = weatherManager.curWeather?.uvIndex.value
         let precipitationChance = weatherManager.curWeather?.precipitationChance
-        let airPollutionIndex: Int? = airQualityModel.aqi
+        let _: Int? = airQualityModel.aqi
         
         ZStack{
             RoundedRectangle(cornerRadius: 25, style: .continuous)
@@ -58,16 +58,18 @@ struct ContentComponent: View {
                         Text("--")
                     }
                 case 2:
-                    if let airPollutionIndex = airPollutionIndex {
-                        Text("\(airPollutionIndex) AQI")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
-                        Text(contentModel.status)
-                            .foregroundStyle(colorScheme == .dark ? .white : .gray)
-                            .padding(.bottom, -100)
+                    if let forecast = filteredForecast.first {
+                        VStack {
+                            Text("\(forecast.avg) AQI")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                            Text(contentModel.status)
+                                .foregroundStyle(colorScheme == .dark ? .white : .gray)
+                                .padding(.bottom, -100)
+                        }
                     } else {
-                        Text("--")
+                        Text("No forecast available")
                     }
                 case 3:
                     if let uvIndex = uvIndex {
@@ -155,6 +157,12 @@ struct ContentComponent: View {
                 
             }
         }
+    }
+    private var filteredForecast: [AQIIndex] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let selectedDateString = dateFormatter.string(from: selectedDate)
+        return airQualityModel.forecast.filter { $0.day == selectedDateString }
     }
 }
 

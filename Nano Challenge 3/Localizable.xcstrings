@@ -30,9 +30,6 @@
         }
       }
     },
-    "10-4 PM" : {
-
-    },
     "Air quality is acceptable" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -67,12 +64,6 @@
       }
     },
     "AQI" : {
-
-    },
-    "AQI %lld" : {
-
-    },
-    "AQI: %lld" : {
 
     },
     "Avoid direct sun and find shade" : {
@@ -129,9 +120,6 @@
         }
       }
     },
-    "City: %@" : {
-
-    },
     "Clear" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -165,6 +153,7 @@
       }
     },
     "Enter Location" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -196,6 +185,7 @@
       }
     },
     "Get Weather" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -252,9 +242,6 @@
         }
       }
     },
-    "Humidity: %@" : {
-
-    },
     "It's a bit hot" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -277,6 +264,7 @@
       }
     },
     "It's good to go outside" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -287,6 +275,7 @@
       }
     },
     "It's hot outside" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -297,6 +286,7 @@
       }
     },
     "It's polluted" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -307,6 +297,7 @@
       }
     },
     "It's rainy outside" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -340,9 +331,6 @@
           }
         }
       }
-    },
-    "Loading" : {
-
     },
     "Low UV risk" : {
       "extractionState" : "manual",
@@ -384,6 +372,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Resiko UV sedang"
+          }
+        }
+      }
+    },
+    "No forecast available" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ramalan AQI tidak tersedia"
           }
         }
       }
@@ -431,21 +429,6 @@
         }
       }
     },
-    "Play inside so you don't get sunburn" : {
-
-    },
-    "Play inside so you don't melt" : {
-
-    },
-    "Play inside so you won't get caught in the rain" : {
-
-    },
-    "Play inside so you won't sick" : {
-
-    },
-    "Play outside because Vit D is a lot" : {
-
-    },
     "Rain" : {
       "localizations" : {
         "id" : {
@@ -457,6 +440,7 @@
       }
     },
     "Rainy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -487,9 +471,6 @@
         }
       }
     },
-    "Status: %@" : {
-
-    },
     "Sunny" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -516,6 +497,7 @@
 
     },
     "Temperature: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -623,12 +605,6 @@
       }
     },
     "UV" : {
-
-    },
-    "UV Index" : {
-
-    },
-    "UV Index: %@" : {
 
     },
     "Vit D" : {
