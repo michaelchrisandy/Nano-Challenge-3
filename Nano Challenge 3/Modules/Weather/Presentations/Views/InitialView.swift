@@ -10,7 +10,7 @@ import SwiftUI
 struct InitialView: View {
     var body: some View {
         Spacer()
-        GifImageView("initialView")
+        GifImageView("search")
             .frame(width: 283)
             .padding(.bottom, -40)
         VStack (spacing: 16){

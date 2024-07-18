@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct MainView: View {
     @State var segmentedSelection = 0
@@ -29,6 +30,10 @@ struct MainView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding()
+                .onChange(of: segmentedSelection) {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
+                }
                 
                 ContentComponent(contentModel: getContentModel(), selectedSegment: segmentedSelection, selectedDate: $selectedDate, weatherManager: weatherManager, airQualityModel: airQualityModel)
                     .padding(.horizontal)
@@ -87,17 +92,21 @@ struct MainView: View {
 
     private func getAirQualityModel() -> ContentModel {
         // Logic to determine Good, Moderate, Bad based on weather data
-        let airQuality = airQualityModel.aqi
-        print("Air Quality: \(airQuality)")
-        if airQuality > 0 && airQuality <= 50 {
-            return ContentModel.goodAirQualityModel
-        } else if airQuality > 50 && airQuality <= 100 {
-            return ContentModel.modAirQualityModel
-        } else if airQuality > 100 {
-            return ContentModel.badAirQualityModel
+        if let forecast = filteredForecast.first {
+            print("Air Quality: \(forecast.avg)")
+            if forecast.avg > 0 && forecast.avg <= 50 {
+                return ContentModel.goodAirQualityModel
+            } else if forecast.avg > 50 && forecast.avg <= 100 {
+                return ContentModel.modAirQualityModel
+            } else if forecast.avg > 100 {
+                return ContentModel.badAirQualityModel
+            } else {
+                return ContentModel.dummy
+            }
         } else {
-            return ContentModel.dummy
+            print("No forecast available")
         }
+        return ContentModel.dummy
     }
 
     private func getUVModel() -> ContentModel {
@@ -124,6 +133,13 @@ struct MainView: View {
         } else {
             return ContentModel.badVitaminDModel
         }
+    }
+    
+    private var filteredForecast: [AQIIndex] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let selectedDateString = dateFormatter.string(from: selectedDate)
+        return airQualityModel.forecast.filter { $0.day == selectedDateString }
     }
 }
 
