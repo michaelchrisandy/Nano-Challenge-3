@@ -19,6 +19,8 @@ struct SearchView: View {
     @ObservedObject var weatherManager: WeatherManager
     @StateObject var airQualityModel: AQIViewModel
     
+    @FocusState private var isKeyboardFocused: Bool
+    
     //user can't select a date before today
     //user can't select a time before now
     private var todayDate: Date {
@@ -47,11 +49,13 @@ struct SearchView: View {
                 TextField("", text: $searchLocation, prompt: Text("Where do you want to go?").foregroundStyle(.gray))
                     .autocorrectionDisabled()
                     .onTapGesture {
+                        UIApplication.shared.dismissKeyboard()
                         self.isSheetPresented = true
                     }
                     .sheet(isPresented: $isSheetPresented) {
                         SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented)
                     }
+                    .focused($isKeyboardFocused)
             }
             .padding(8)
             .background(.gray.opacity(0.2))
@@ -75,10 +79,14 @@ struct SearchView: View {
         .onChange(of: selectedLocation){
             fetchWeatherData()
             fetchAQIData()
+            UIApplication.shared.dismissKeyboard()
+            isKeyboardFocused = false
         }
         .onChange(of: selectedDate){
             fetchWeatherData()
             fetchAQIData()
+            UIApplication.shared.dismissKeyboard()
+            isKeyboardFocused = false
         }
     }
     
@@ -90,7 +98,6 @@ struct SearchView: View {
                 self.coordinate = coordinate
                 Task {
                     await weatherManager.getWeather(lat: coordinate.latitude, long: coordinate.longitude) //passing the latitude and longitude of the coordinates
-                    //                    weatherInfo = weatherManager.getWeatherForSpecificDateAndHour(date: selectedDate) ?? "No data available" //hourly forecast data
                     weatherManager.getWeatherForSpecificDateAndHour(date: selectedDate)
                 }
             }
@@ -104,7 +111,11 @@ struct SearchView: View {
     }
 }
 
-
+extension UIApplication {
+    func dismissKeyboard() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
 
 #Preview {
     @State var selectedDate = Date()

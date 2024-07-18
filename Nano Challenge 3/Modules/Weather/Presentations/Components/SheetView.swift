@@ -32,6 +32,7 @@ struct SheetView: View {
                     searchLocation = selectedLocation!.name!
                     isSheetPresented = false
                     InputStatus.isLocationEmpty = false
+                    UIApplication.shared.dismissKeyboard()
                 }) {
                     VStack(alignment: .leading) {
                         Text(location.name ?? "Unknown")
