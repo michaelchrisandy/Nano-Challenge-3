@@ -16,7 +16,6 @@
 		4A32AD422C3FC567006F66E5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32AD412C3FC567006F66E5 /* SheetView.swift */; };
 		4A34DB832C5390C1006FB286 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A34DB822C5390C1006FB286 /* UserInfo.swift */; };
 		BC18469E2C43971000AB7408 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18469D2C43971000AB7408 /* MainView.swift */; };
-		BC1846C42C44F32D00AB7408 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BC1846C32C44F32D00AB7408 /* Lottie */; };
 		BC1846CA2C452B1800AB7408 /* Phrases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846C92C452B1800AB7408 /* Phrases.swift */; };
 		BC1846D52C452DED00AB7408 /* ContentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846D42C452DED00AB7408 /* ContentComponent.swift */; };
 		BC1846D82C452E4B00AB7408 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846D72C452E4B00AB7408 /* ContentModel.swift */; };
@@ -89,7 +88,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC9183FE2C46607100D28F39 /* SDWebImageSwiftUI in Frameworks */,
-				BC1846C42C44F32D00AB7408 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +100,7 @@
 				BC9183EC2C4627B700D28F39 /* Localizable.xcstrings */,
 				4A32AD242C3E6649006F66E5 /* Nano Challenge 3 */,
 				4A32AD232C3E6649006F66E5 /* Products */,
+				4A501AE02C56AE470000D74D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +133,13 @@
 				4A32AD2C2C3E664A006F66E5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A501AE02C56AE470000D74D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC1846C82C452AC300AB7408 /* Shared */ = {
@@ -267,7 +273,6 @@
 			);
 			name = "Nano Challenge 3";
 			packageProductDependencies = (
-				BC1846C32C44F32D00AB7408 /* Lottie */,
 				BC9183FD2C46607100D28F39 /* SDWebImageSwiftUI */,
 			);
 			productName = "Nano Challenge 3";
@@ -596,11 +601,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC1846C32C44F32D00AB7408 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BC1846C22C44F32D00AB7408 /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
-		};
 		BC9183FD2C46607100D28F39 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC9183FC2C46607100D28F39 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
