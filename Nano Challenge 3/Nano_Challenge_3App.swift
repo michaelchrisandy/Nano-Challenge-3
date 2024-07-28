@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Nano_Challenge_3App: App {
+    @StateObject private var sharedData = SharedData()
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(sharedData : sharedData)
         }
         .modelContainer(for: UserInfo.self)
     }

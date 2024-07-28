@@ -19,6 +19,8 @@ struct SearchView: View {
     @ObservedObject var weatherManager: WeatherManager
     @StateObject var airQualityModel: AQIViewModel
     
+    @ObservedObject var sharedData : SharedData
+    
     @FocusState private var isKeyboardFocused: Bool
     
     //user can't select a date before today
@@ -53,9 +55,20 @@ struct SearchView: View {
                         self.isSheetPresented = true
                     }
                     .sheet(isPresented: $isSheetPresented) {
-                        SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented)
+                        SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented, sharedData: sharedData)
                     }
                     .focused($isKeyboardFocused)
+                if !searchLocation.isEmpty {
+                    Button(action: {
+                        self.searchLocation = ""
+                        self.selectedLocation = nil
+                        sharedData.isLocationEmpty = true
+                    }) {
+                        Image(systemName: "multiply.circle.fill")
+                            .foregroundColor(.gray)
+                            .padding(.trailing, 8)
+                    }
+                }
             }
             .padding(8)
             .background(.gray.opacity(0.2))
@@ -121,5 +134,5 @@ extension UIApplication {
     @State var selectedDate = Date()
     @StateObject var weatherManager = WeatherManager()
     @ObservedObject var aqiViewModel = AQIViewModel()
-    return SearchView(selectedDate: $selectedDate, weatherManager: weatherManager, airQualityModel: aqiViewModel)
+    return SearchView(selectedDate: $selectedDate, weatherManager: weatherManager, airQualityModel: aqiViewModel, sharedData: SharedData())
 }

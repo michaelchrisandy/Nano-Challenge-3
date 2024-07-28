@@ -16,6 +16,8 @@ struct SheetView: View {
     @State private var suggestedLocations: [MKMapItem] = []
     @StateObject private var locationManager = LocationManager()
     
+    @ObservedObject var sharedData : SharedData
+    
     @FocusState private var isTextFieldFocused: Bool
 
     var body: some View {
@@ -34,7 +36,7 @@ struct SheetView: View {
                     selectedLocation = location
                     searchLocation = selectedLocation!.name!
                     isSheetPresented = false
-                    InputStatus.isLocationEmpty = false
+                    sharedData.isLocationEmpty = false
                     UIApplication.shared.dismissKeyboard()
                 }) {
                     VStack(alignment: .leading) {
@@ -94,7 +96,7 @@ struct SheetView: View {
     @State var searchLocation: String = ""
     @State var selectedLocation : MKMapItem? = createDummyMapItem()
     @State var isSheetPresented: Bool = true
-    return SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented)
+    return SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented, sharedData: SharedData())
     
     func createDummyMapItem() -> MKMapItem {
         let coordinate = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194) // San Francisco coordinates
