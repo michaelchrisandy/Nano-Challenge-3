@@ -242,6 +242,16 @@
         }
       }
     },
+    "Insert a location" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masukkan lokasi"
+          }
+        }
+      }
+    },
     "It's a bit hot" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -462,6 +472,7 @@
       }
     },
     "Search for a place" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {

@@ -19,17 +19,34 @@ struct SheetView: View {
     @ObservedObject var sharedData : SharedData
     
     @FocusState private var isTextFieldFocused: Bool
-
+    
     var body: some View {
         VStack{
-            TextField("Search for a place", text: $searchLocation)
-                .autocorrectionDisabled()
-                .onChange(of: searchLocation) {
-                    performSearch()
+            
+            HStack {
+                TextField("", text: $searchLocation, prompt: Text("Insert a location").foregroundStyle(.gray))
+                    .autocorrectionDisabled()
+                    .onChange(of: searchLocation) {
+                        performSearch()
+                    }
+                    .focused($isTextFieldFocused)
+                
+                if !searchLocation.isEmpty {
+                    Button(action: {
+                        self.searchLocation = ""
+                        self.selectedLocation = nil
+                        sharedData.isLocationEmpty = true
+                    }) {
+                        Image(systemName: "multiply.circle.fill")
+                            .foregroundColor(.gray)
+                            .padding(.trailing, 8)
+                    }
                 }
-                .focused($isTextFieldFocused)
-                .padding()
-
+            }
+            .padding(8)
+            .background(.gray.opacity(0.2))
+            .cornerRadius(8)
+            
             //list of suggested location
             List(suggestedLocations, id: \.self) { location in
                 Button(action: {
@@ -48,12 +65,14 @@ struct SheetView: View {
                 }
             }
             .listStyle(PlainListStyle())
-        }.onAppear{
+        }
+        .padding()
+        .onAppear{
             locationManager.startUpdatingLocation()
             isTextFieldFocused = true
         }
     }
-
+    
     private func performSearch() {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchLocation
@@ -61,14 +80,14 @@ struct SheetView: View {
             center: locationManager.location?.coordinate ??  CLLocationCoordinate2D(latitude: -6.200000, longitude: 106.816666),
             span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         )
-
+        
         let search = MKLocalSearch(request: request)
         search.start { response, error in
             guard let response = response else {
                 print("Error: \(String(describing: error))")
                 return
             }
-
+            
             self.suggestedLocations = response.mapItems
         }
     }
@@ -82,7 +101,7 @@ struct SheetView: View {
             CNPostalAddressPostalCodeKey: "94105",
             CNPostalAddressCountryKey: "United States"
         ]
-
+        
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = "Test Location"
@@ -107,7 +126,7 @@ struct SheetView: View {
             CNPostalAddressPostalCodeKey: "94105",
             CNPostalAddressCountryKey: "United States"
         ]
-
+        
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = "Test Location"
