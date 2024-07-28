@@ -23,6 +23,8 @@ struct SearchView: View {
     
     @FocusState private var isKeyboardFocused: Bool
     
+    @FocusState private var isTextFieldFocused: Bool
+    
     //user can't select a date before today
     //user can't select a time before now
     private var todayDate: Date {
@@ -51,13 +53,12 @@ struct SearchView: View {
                 TextField("", text: $searchLocation, prompt: Text("Where do you want to go?").foregroundStyle(.gray))
                     .autocorrectionDisabled()
                     .onTapGesture {
-                        UIApplication.shared.dismissKeyboard()
                         self.isSheetPresented = true
                     }
                     .sheet(isPresented: $isSheetPresented) {
                         SheetView(searchLocation: $searchLocation, selectedLocation: $selectedLocation, isSheetPresented: $isSheetPresented, sharedData: sharedData)
                     }
-                    .focused($isKeyboardFocused)
+                    .focused($isTextFieldFocused)
                 if !searchLocation.isEmpty {
                     Button(action: {
                         self.searchLocation = ""
@@ -92,14 +93,13 @@ struct SearchView: View {
         .onChange(of: selectedLocation){
             fetchWeatherData()
             fetchAQIData()
-            UIApplication.shared.dismissKeyboard()
-            isKeyboardFocused = false
         }
         .onChange(of: selectedDate){
             fetchWeatherData()
             fetchAQIData()
-            UIApplication.shared.dismissKeyboard()
-            isKeyboardFocused = false
+        }
+        .onChange(of: isTextFieldFocused){
+            isTextFieldFocused = false
         }
     }
     
@@ -121,12 +121,6 @@ struct SearchView: View {
         guard let selectedLocation = selectedLocation else { return }
         airQualityModel.fetchAQI(latitude: selectedLocation.placemark.coordinate.latitude, longitude: selectedLocation.placemark.coordinate.longitude)
         print("fetchAQIData() with lat \(selectedLocation.placemark.coordinate.latitude) and long \(selectedLocation.placemark.coordinate.longitude)  is called")
-    }
-}
-
-extension UIApplication {
-    func dismissKeyboard() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
