@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import Combine
 
-struct InputStatus{
-    static var isLocationEmpty = true
+class SharedData: ObservableObject{
+    @Published var isLocationEmpty = true
 }

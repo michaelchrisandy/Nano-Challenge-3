@@ -18,14 +18,15 @@ struct MainView: View {
     @State private var selectedDate = Date()
     @StateObject private var airQualityModel = AQIViewModel()
     
-   
+    @ObservedObject var sharedData : SharedData
+    
     @Query var userInfo: [UserInfo]
     
     var body: some View {
         VStack {
-            SearchView(selectedDate: $selectedDate,  weatherManager: weatherManager, airQualityModel: airQualityModel)
+            SearchView(selectedDate: $selectedDate,  weatherManager: weatherManager, airQualityModel: airQualityModel, sharedData: sharedData)
 
-            if InputStatus.isLocationEmpty {
+            if sharedData.isLocationEmpty {
                 InitialView()
             } else {
                 Picker(selection: $segmentedSelection, label: Text("")) {
@@ -169,8 +170,7 @@ struct MainView: View {
 }
 
 #Preview {
-    //preview bakal meledak (gatau kenapa gitu kalo pake swiftdata)
-    MainView()
+    MainView(sharedData: SharedData())
         .modelContainer(for: UserInfo.self)
 }
 
