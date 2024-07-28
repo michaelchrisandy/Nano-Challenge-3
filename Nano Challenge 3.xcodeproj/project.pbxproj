@@ -14,6 +14,7 @@
 		4A32AD2D2C3E664A006F66E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A32AD2C2C3E664A006F66E5 /* Preview Assets.xcassets */; };
 		4A32AD342C3E6E4A006F66E5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32AD332C3E6E4A006F66E5 /* SearchView.swift */; };
 		4A32AD422C3FC567006F66E5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32AD412C3FC567006F66E5 /* SheetView.swift */; };
+		4A34DB832C5390C1006FB286 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A34DB822C5390C1006FB286 /* UserInfo.swift */; };
 		BC18469E2C43971000AB7408 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18469D2C43971000AB7408 /* MainView.swift */; };
 		BC1846C42C44F32D00AB7408 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BC1846C32C44F32D00AB7408 /* Lottie */; };
 		BC1846CA2C452B1800AB7408 /* Phrases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1846C92C452B1800AB7408 /* Phrases.swift */; };
@@ -52,7 +53,8 @@
 		4A32AD2C2C3E664A006F66E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A32AD332C3E6E4A006F66E5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		4A32AD412C3FC567006F66E5 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
-		4A34DB812C4FA1DD006FB286 /* Nano-Challenge-3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Nano-Challenge-3-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4A34DB822C5390C1006FB286 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		4A34DB842C539B41006FB286 /* Nano-Challenge-3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Nano-Challenge-3-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BC18469D2C43971000AB7408 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BC1846C92C452B1800AB7408 /* Phrases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrases.swift; sourceTree = "<group>"; };
 		BC1846D42C452DED00AB7408 /* ContentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentComponent.swift; sourceTree = "<group>"; };
@@ -114,7 +116,7 @@
 		4A32AD242C3E6649006F66E5 /* Nano Challenge 3 */ = {
 			isa = PBXGroup;
 			children = (
-				4A34DB812C4FA1DD006FB286 /* Nano-Challenge-3-Info.plist */,
+				4A34DB842C539B41006FB286 /* Nano-Challenge-3-Info.plist */,
 				BC1846C82C452AC300AB7408 /* Shared */,
 				BC1846CC2C452CF100AB7408 /* Modules */,
 				BCE005BC2C3E90E000978324 /* Nano Challenge 3.entitlements */,
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				BC1846D72C452E4B00AB7408 /* ContentModel.swift */,
+				4A34DB822C5390C1006FB286 /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE005C02C3E938A00978324 /* AQIViewModel.swift in Sources */,
+				4A34DB832C5390C1006FB286 /* UserInfo.swift in Sources */,
 				BC18469E2C43971000AB7408 /* MainView.swift in Sources */,
 				BC9184162C468CBA00D28F39 /* InputStatus.swift in Sources */,
 				278A99E42C40DC3F0095EA37 /* LocationManager.swift in Sources */,

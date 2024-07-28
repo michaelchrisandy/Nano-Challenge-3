@@ -7,12 +7,19 @@
 
 import SwiftUI
 import UIKit
+import SwiftData
 
 struct MainView: View {
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var context
+    
     @State var segmentedSelection = 0
     @StateObject private var weatherManager = WeatherManager()
     @State private var selectedDate = Date()
     @StateObject private var airQualityModel = AQIViewModel()
+    
+   
+    @Query var userInfo: [UserInfo]
     
     var body: some View {
         VStack {
@@ -31,6 +38,8 @@ struct MainView: View {
                 .pickerStyle(.segmented)
                 .padding()
                 .onChange(of: segmentedSelection) {
+                    let temp = userInfo[0]
+                    temp.lastSegmentSelected = segmentedSelection
                     let generator = UIImpactFeedbackGenerator(style: .medium)
                     generator.impactOccurred()
                 }
@@ -41,6 +50,16 @@ struct MainView: View {
             Spacer()
         }
         .background(.backgroundColoranjay)
+        .onAppear{
+//            segmentedSelection = userInfo[0].lastSegmentSelected
+            if(userInfo.isEmpty){
+                addUserInfo()
+            }
+            else{
+                segmentedSelection = userInfo[0].lastSegmentSelected
+            }
+            
+        }
     }
 
     private func getContentModel() -> ContentModel {
@@ -135,14 +154,22 @@ struct MainView: View {
         }
     }
     
+    private func addUserInfo(){
+        let newUserInfo = UserInfo()
+        context.insert(newUserInfo)
+    }
+    
     private var filteredForecast: [AQIIndex] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let selectedDateString = dateFormatter.string(from: selectedDate)
         return airQualityModel.forecast.filter { $0.day == selectedDateString }
     }
+    
 }
 
 #Preview {
+    //preview bakal meledak (gatau kenapa gitu kalo pake swiftdata)
     MainView()
 }
+

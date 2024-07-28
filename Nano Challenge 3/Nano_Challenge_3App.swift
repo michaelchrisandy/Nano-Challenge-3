@@ -13,5 +13,6 @@ struct Nano_Challenge_3App: App {
         WindowGroup {
             MainView()
         }
+        .modelContainer(for: UserInfo.self)
     }
 }
