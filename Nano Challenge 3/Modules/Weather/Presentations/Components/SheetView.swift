@@ -15,6 +15,8 @@ struct SheetView: View {
     @Binding var isSheetPresented: Bool
     @State private var suggestedLocations: [MKMapItem] = []
     @StateObject private var locationManager = LocationManager()
+    
+    @FocusState private var isTextFieldFocused: Bool
 
     var body: some View {
         VStack{
@@ -23,6 +25,7 @@ struct SheetView: View {
                 .onChange(of: searchLocation) {
                     performSearch()
                 }
+                .focused($isTextFieldFocused)
                 .padding()
 
             //list of suggested location
@@ -45,6 +48,7 @@ struct SheetView: View {
             .listStyle(PlainListStyle())
         }.onAppear{
             locationManager.startUpdatingLocation()
+            isTextFieldFocused = true
         }
     }
 

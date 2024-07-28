@@ -171,5 +171,6 @@ struct MainView: View {
 #Preview {
     //preview bakal meledak (gatau kenapa gitu kalo pake swiftdata)
     MainView()
+        .modelContainer(for: UserInfo.self)
 }
 
